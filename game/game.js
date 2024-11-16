@@ -17,8 +17,9 @@ document.addEventListener("DOMContentLoaded", () => {
   let correctSolution = null;
   let timeRemaining = 60;
   let timerInterval;
+  let level = 1;
 
-  //highet score update
+  // Highest score update on logout
   logoutButton.addEventListener("click", () => {
     fetch("update_high_score.php", {
       method: "POST",
@@ -36,10 +37,12 @@ document.addEventListener("DOMContentLoaded", () => {
       });
   });
 
-  //  start the timer
+  // Start the timer with varying intervals based on the level
   function startTimer() {
     clearInterval(timerInterval);
-    timeRemaining = 60;
+
+    let intervalTime = level === 2 ? 40 : 60;
+    timeRemaining = intervalTime;
     updateTimerDisplay();
 
     timerInterval = setInterval(() => {
@@ -69,6 +72,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }, 1000);
   }
 
+  // Update the timer display
   function updateTimerDisplay() {
     const minutes = String(Math.floor(timeRemaining / 60)).padStart(2, "0");
     const seconds = String(timeRemaining % 60).padStart(2, "0");
@@ -109,7 +113,8 @@ document.addEventListener("DOMContentLoaded", () => {
       scoreDisplay.textContent = currentScore;
 
       if (currentScore > 5) {
-        updateLevel(2); // Update the level to 2
+        level = 2;
+        updateLevel(level);
       }
 
       if (currentScore > highestScore) {
@@ -152,5 +157,9 @@ document.addEventListener("DOMContentLoaded", () => {
       .catch((error) => {
         console.error("Error updating high score:", error);
       });
+  }
+
+  function updateLevel(newLevel) {
+    console.log(`Level updated to: ${newLevel}`);
   }
 });

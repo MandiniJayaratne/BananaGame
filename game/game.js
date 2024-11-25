@@ -60,7 +60,7 @@ document.addEventListener("DOMContentLoaded", () => {
           .then((data) => {
             console.log(data.message);
             alert("Time's up! Game over!");
-            window.location.reload(); // Reload the page or reset the game
+            window.location.reload();
           })
           .catch((error) => {
             console.error("Error updating high score:", error);
@@ -89,14 +89,14 @@ document.addEventListener("DOMContentLoaded", () => {
       return data.solution;
     } catch (error) {
       console.error("Error fetching data:", error);
-      resultMessage.textContent = "Error loading game data.";
+      resultMessage.textContent = "ERROR LOADING GAME DATA.";
     }
   }
 
   // Load the first question
   fetchGameData().then((solution) => {
     correctSolution = solution;
-    startTimer(); // Start the timer immediately after loading the first question
+    startTimer();
   });
 
   // Update the answer form event listener
@@ -105,16 +105,19 @@ document.addEventListener("DOMContentLoaded", () => {
     const userAnswer = parseInt(userAnswerInput.value, 10);
 
     if (userAnswer === correctSolution) {
-      resultMessage.textContent = "Correct Answer!";
+      resultMessage.textContent = "CORRECT ANSWER!";
       resultMessage.style.color = "green";
       gameContainer.classList.add("correct-answer");
       answerForm.style.display = "none";
       currentScore++;
       scoreDisplay.textContent = currentScore;
 
-      if (currentScore > 5) {
+      // Check for level change
+      if (currentScore > 3 && level === 1) {
         level = 2;
-        updateLevel(level);
+        document.getElementById("level").textContent = level;
+        console.log("Level updated to:", level);
+        startTimer();
       }
 
       if (currentScore > highestScore) {
@@ -134,12 +137,16 @@ document.addEventListener("DOMContentLoaded", () => {
         });
       }, 3000); // Wait for 3 seconds before loading the next question
     } else {
-      resultMessage.textContent = "Incorrect. Try again!";
+      resultMessage.textContent = "OOPS WRONG ANSWER!";
       resultMessage.style.color = "red";
     }
 
     userAnswerInput.value = "";
   });
+
+  // Debugging logs
+  console.log("Current Score:", currentScore);
+  console.log("Level:", level);
 
   // Function to update the high score in the backend
   function updateHighScore(newHighScore) {
@@ -157,9 +164,5 @@ document.addEventListener("DOMContentLoaded", () => {
       .catch((error) => {
         console.error("Error updating high score:", error);
       });
-  }
-
-  function updateLevel(newLevel) {
-    console.log(`Level updated to: ${newLevel}`);
   }
 });

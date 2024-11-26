@@ -2,12 +2,13 @@
 
 body {
   font-family: "Press Start 2P", cursive;
-  background-color: #b852c1;
+  background-color: #b3b090;
   color: #fff;
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
+  position: relative;
 }
 
 * {
@@ -26,6 +27,9 @@ body {
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
   overflow: hidden;
   padding: 20px;
+  margin-left: 230px;
+  position: relative;
+  z-index: 10;
 }
 
 .scoreboard,
@@ -34,8 +38,12 @@ body {
   padding: 20px;
 }
 
+H3 {
+  color: gold;
+}
+
 .scoreboard {
-  background-color: #cb7dd3;
+  background-color: #980fa7;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -50,7 +58,7 @@ body {
 }
 
 .score-title {
-  font-size: 1.2em;
+  font-size: 1em;
   color: #fff;
   margin-bottom: 5px;
 }
@@ -63,7 +71,7 @@ body {
   border-radius: 10px;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
   font-weight: bold;
-  color: #fff;
+  color: #1e191e;
   text-align: center;
   font-size: 1.2em;
 }
@@ -99,7 +107,7 @@ h2 {
 
 label {
   font-size: 1em;
-  color: #333;
+  color: #f0eded;
 }
 
 input[type="number"] {
@@ -107,7 +115,7 @@ input[type="number"] {
   width: 100px;
   height: 60px;
   font-size: 1em;
-  background-color: #f2e205;
+  background-color: wheat;
   border: 2px solid #ccc;
   border-radius: 5px;
   font-family: "Press Start 2P", cursive;
@@ -130,7 +138,7 @@ button:hover {
 
 #result-message {
   font-size: 1.2em;
-  color: #333;
+  color: #f4eded;
   font-weight: bold;
   margin-top: 15px;
 }
@@ -151,8 +159,74 @@ button:hover {
   font-weight: bold;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  margin-bottom: 500px;
+  margin-left: 60px;
 }
 
 .logout-btn:hover {
-  background-color: #e60000;
+  background-color: #770909;
+}
+
+@keyframes fallBananas {
+  0% {
+    transform: translateY(-100px);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(600px);
+    opacity: 0;
+  }
+}
+
+.banana {
+  position: absolute;
+  font-size: 2em;
+  animation: fallBananas 2s infinite;
+  pointer-events: none;
+}
+
+.banana:nth-child(odd) {
+  animation-duration: 3s;
+}
+
+.banana:nth-child(even) {
+  animation-duration: 5s;
+}
+
+.banana:nth-child(1) {
+  left: 10%;
+  animation-delay: 0s;
+}
+
+.banana:nth-child(2) {
+  left: 25%;
+  animation-delay: 2s;
+}
+
+.banana:nth-child(3) {
+  left: 40%;
+  animation-delay: 4s;
+}
+
+.banana:nth-child(4) {
+  left: 55%;
+  animation-delay: 1s;
+}
+
+.banana:nth-child(5) {
+  left: 70%;
+  animation-delay: 3s;
+}
+
+.banana:nth-child(6) {
+  left: 85%;
+  animation-delay: 2s;
+}
+
+.banana:nth-child(7) {
+  left: 50%;
+  animation-delay: 6s;
 }

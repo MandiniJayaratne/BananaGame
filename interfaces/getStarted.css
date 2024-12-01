@@ -12,7 +12,7 @@ body {
   align-items: center;
   height: 100vh;
   overflow: hidden;
-  background: #b852c1;
+  background: rgb(100, 4, 111);
   color: #fff;
   text-align: center;
 }
@@ -52,7 +52,7 @@ p {
 
 .game-button:hover {
   transform: scale(1.1) rotate(-3deg);
-  background: #ff4d4d;
+  background: #18d2d2;
 }
 
 .banana {

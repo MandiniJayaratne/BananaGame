@@ -2,7 +2,14 @@
 
 body {
   font-family: "Press Start 2P", cursive;
-  background-color: #b3b090;
+  /*background-color: #980fa7;*/
+  background: rgb(2, 0, 36);
+  background: linear-gradient(
+    90deg,
+    rgb(45, 2, 56) 0%,
+    rgb(92, 14, 101) 35%,
+    rgba(143, 212, 210, 1) 100%
+  );
   color: #fff;
   display: flex;
   justify-content: center;
@@ -43,7 +50,7 @@ H3 {
 }
 
 .scoreboard {
-  background-color: #980fa7;
+  background-color: rgb(95, 29, 124);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -76,12 +83,29 @@ H3 {
   font-size: 1.2em;
 }
 
+#times-up-message {
+  font-size: 1.2em;
+  font-weight: bold;
+  color: red;
+  text-align: center;
+  display: none; /* Hide by default */
+}
+
+#times-up-message.hidden {
+  display: none; /* Ensure it remains hidden */
+}
+
+#times-up-message:not(.hidden) {
+  display: block; /* Show only when the "hidden" class is removed */
+}
+
 .game-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 8px;
   background-color: #8fd4d2;
+
   padding: 50px;
 }
 
@@ -115,7 +139,8 @@ input[type="number"] {
   width: 100px;
   height: 60px;
   font-size: 1em;
-  background-color: wheat;
+  /*background-color: rgb(183, 171, 83);*/
+  background-color: #f2e205;
   border: 2px solid #ccc;
   border-radius: 5px;
   font-family: "Press Start 2P", cursive;

@@ -14,7 +14,7 @@ if (!isset($_SESSION['username'])) {
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Banana Game</title>
-    <link rel="stylesheet" href="game1.css" />
+    <link rel="stylesheet" href="game.css" />
 </head>
 <body>
     <div class="container">
@@ -35,13 +35,14 @@ if (!isset($_SESSION['username'])) {
     <div class="score-item">
         <h3 class="score-title">TIME REMAINING:</h3>
         <div class="score-box" id="timer">01:00</div>
+        <p id="times-up-message" class="hidden">Time's up! Game over</p>
     </div>
 </div>
- <div class="game-container">
-        <h2>TAKE A GUESS</h2>
-        <div id="image-container">
-             <img id="game-image" src="" alt="Game Image" />
-        </div>
+<div class="game-container">
+            <h2>TAKE A GUESS</h2>
+            <div id="image-container">
+                <img id="game-image" src="" alt="Game Image" />
+            </div>
             <form id="answer-form">
                 <label for="user-answer">ENTER YOUR ANSWER HERE:</label>
                 <input type="number" id="user-answer" required />
@@ -50,17 +51,16 @@ if (!isset($_SESSION['username'])) {
             <p id="result-message"></p>
         </div>
     </div>
+
     <div class="bananas">
-  <span class="banana">🍌</span>
-  <span class="banana">🍌</span>
-  <span class="banana">🍌</span>
-  <span class="banana">🍌</span>
-  <span class="banana">🍌</span>
-  <span class="banana">🍌</span>
-  <span class="banana">🍌</span>
-</div>
-
-
+        <span class="banana">🍌</span>
+        <span class="banana">🍌</span>
+        <span class="banana">🍌</span>
+        <span class="banana">🍌</span>
+        <span class="banana">🍌</span>
+        <span class="banana">🍌</span>
+        <span class="banana">🍌</span>
+    </div>
 
     <a href="../authenticate/logout.php" class="logout-btn">Logout</a>
 

@@ -2,7 +2,6 @@
 
 body {
   font-family: "Press Start 2P", cursive;
-  /*background-color: #980fa7;*/
   background: rgb(2, 0, 36);
   background: linear-gradient(
     90deg,
@@ -47,6 +46,7 @@ body {
 
 H3 {
   color: gold;
+  margin-bottom: 40px;
 }
 
 .scoreboard {
@@ -84,19 +84,19 @@ H3 {
 }
 
 #times-up-message {
-  font-size: 1.2em;
+  font-size: 1rem;
   font-weight: bold;
-  color: red;
+  color: rgb(226, 77, 77);
   text-align: center;
-  display: none; /* Hide by default */
+  display: none;
 }
 
 #times-up-message.hidden {
-  display: none; /* Ensure it remains hidden */
+  display: none;
 }
 
 #times-up-message:not(.hidden) {
-  display: block; /* Show only when the "hidden" class is removed */
+  display: block;
 }
 
 .game-container {
@@ -105,14 +105,14 @@ H3 {
   align-items: center;
   gap: 8px;
   background-color: #8fd4d2;
-
   padding: 50px;
 }
 
 h2 {
   color: fff;
   font-size: 1.5em;
-  margin-bottom: 20px;
+  margin-bottom: 12px;
+  margin-top: 30px;
 }
 
 #image-container img {
@@ -120,41 +120,52 @@ h2 {
   max-width: 350px;
   border-radius: 5px;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  margin-bottom: 40px;
 }
 
 .answer-form {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 2px;
+  gap: 10px;
 }
 
 label {
+  margin-top: 20px;
+  margin-left: 25px;
   font-size: 1em;
   color: #f0eded;
 }
 
 input[type="number"] {
   padding: 10px;
+  margin-left: 80px;
+  margin-top: 8px;
+  margin-bottom: 30px;
   width: 100px;
   height: 60px;
-  font-size: 1em;
-  /*background-color: rgb(183, 171, 83);*/
+  font-size: 20px;
   background-color: #f2e205;
   border: 2px solid #ccc;
   border-radius: 5px;
   font-family: "Press Start 2P", cursive;
+  box-sizing: border-box;
 }
 
 button {
-  padding: 10px 20px;
-  font-size: 1em;
+  padding: 10px;
+  width: 100px;
+  height: 40px;
+  margin-left: 10px;
+  margin-top: 8px;
+  font-size: 12px;
   background-color: #4caf50;
   color: white;
-  border: none;
+  border: 2px solid #ccc;
   border-radius: 5px;
   cursor: pointer;
   font-family: "Press Start 2P", cursive;
+  box-sizing: border-box;
 }
 
 button:hover {

@@ -8,12 +8,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (isset($data['highest_score'])) {
         $highest_score = $data['highest_score'];
 
-        // Update the highest score in the session
+       
         $_SESSION['highest_score'] = $highest_score;
 
        
 
-        // Example (using PDO):
+       
         try {
             $pdo = new PDO('mysql:host=localhost;dbname=banana_game_db', 'root', '');
             $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);

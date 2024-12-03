@@ -1,101 +1,123 @@
 @import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
 
 body {
-  font-family: "Press Start 2P", cursive;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-size: 1rem;
+  margin: 0;
+  padding: 0;
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
-  margin: 0;
-  background-color: #9f1eab;
+  height: 100vh;
+  background-color: rgb(100, 4, 111);
+}
+
+.header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 10px 20px;
+  background-color: transparent;
+  z-index: 1000;
+}
+
+.titleheader {
+  font-family: "Poppins", sans-serif;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #f2e205;
 }
 
 .container {
-  width: 100%;
-  max-width: 400px;
-  max-height: 500px;
-  padding: 20px;
-  background-color: #b852c1;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  border-radius: px;
+  display: flex;
+  width: 90%;
+  max-width: 800px;
+  height: 400px;
+  background-color: #fff;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
 }
 
-h2 {
-  text-align: center;
-  color: #f2e205;
+.container .left,
+.container .right {
+  flex: 1;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.container .left {
+  background-color: #b852c1;
+  color: #fff;
+  transition: all 0.5s ease;
+}
+
+.container .right {
+  background-color: #f5f5f5;
+  color: #333;
+  transition: all 0.5s ease;
+}
+
+.container h2 {
+  font-size: 2rem;
   margin-bottom: 20px;
 }
 
-/* Input fields and labels */
-label {
-  font-weight: bold;
-  color: #e9d7d7;
-  display: block;
+.container form {
+  width: 100%;
+  max-width: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.container form label {
+  font-weight: 600;
   margin-bottom: 5px;
 }
 
-input[type="text"],
-input[type="password"] {
+.container form input {
   width: 100%;
   padding: 10px;
   margin-bottom: 15px;
-  border: 1px solid #f1e9e9;
-  border-radius: 4px;
-  box-sizing: border-box;
-  transition: border-color 0.3s ease;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
 }
 
-input[type="text"]:focus,
-input[type="password"]:focus {
-  border-color: #5c9ded;
-  outline: none;
-}
-
-/* Button */
-button {
-  width: 100%;
+.container form button {
   padding: 10px;
-  background-color: #a7b2c0;
+  width: 40%;
+  max-width: 300px;
+  background-color: #dedc36;
+  color: #3c3333;
   border: none;
-  border-radius: 4px;
-  color: #060606;
-  font-weight: bold;
+  border-radius: 5px;
+  font-size: 1rem;
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
 
-button:hover {
-  background-color: #dee745;
-  color: #0a0e12;
+.container form button:hover {
+  background-color: #f2e205;
 }
 
-.error-message,
-.success-message {
-  padding: 10px;
-  margin-bottom: 15px;
-  border-radius: 4px;
+.msg {
+  margin-top: 20px;
+  font-size: 0.9rem;
   text-align: center;
 }
 
-.error-message {
-  background-color: #f8d7da;
-  color: #721c24;
-}
-
-.success-message {
-  background-color: #d4edda;
-  color: #155724;
-}
-
-/* Links */
-form a {
-  display: block;
-  text-align: center;
-  margin-top: 10px;
+.msg a {
   color: #5c9ded;
   text-decoration: none;
+  font-weight: 600;
 }
 
-form a:hover {
+.msg a:hover {
   text-decoration: underline;
 }

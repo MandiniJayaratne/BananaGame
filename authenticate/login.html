@@ -1,25 +1,35 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Banana Game</title>
+    <title>Banana Game - Login</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="authenticate.css" />
   </head>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap"
-    rel="stylesheet"
-  />
-
-  <link rel="stylesheet" href="authenticate.css" />
-
   <body>
-    <container class="container">
-      <h2>Login</h2>
-      <form method="POST" action="login.php">
-        <label>Username:</label>
-        <input type="text" name="username" required /><br />
-        <label>Password:</label>
-        <input type="password" name="password" required /><br />
-        <button type="submit">Login</button>
-      </form>
-    </container>
+    <div class="header">
+      <span class="titleheader">Banana Game</span>
+    </div>
+    <div class="container">
+      <div class="left">
+        <form method="POST" action="login.php">
+          <label>Username:</label>
+          <input type="text" name="username" required />
+          <label>Password:</label>
+          <input type="password" name="password" required />
+          <button type="submit">Login</button>
+        </form>
+        <p class="msg">
+          New here?
+          <a href="register.html" onclick="toggleForm(false)">Register here</a>.
+        </p>
+      </div>
+      <div class="right">
+        <h2>Login</h2>
+      </div>
+    </div>
+    <script src="auth.js"></script>
   </body>
 </html>

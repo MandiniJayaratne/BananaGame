@@ -1,27 +1,35 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Register</title>
+    <title>Banana Game - Register</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="authenticate.css" />
   </head>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap"
-    rel="stylesheet"
-  />
-  <link rel="stylesheet" href="authenticate.css" />
   <body>
-    <container class="container">
-      <h2>Create An Account</h2>
-      <form method="POST" action="register.php">
-        <label>Username:</label>
-        <input type="text" name="username" required /><br />
-
-        <label>Password:</label>
-        <input type="password" name="password" required /><br />
-
-        <button type="submit">Register</button>
-      </form>
-
-      <p>Already a player? <a href="login.html">Login here</a>.</p>
-    </container>
+    <div class="header">
+      <span class="titleheader">Banana Game</span>
+    </div>
+    <div class="container">
+      <div class="left">
+        <h2>Register</h2>
+      </div>
+      <div class="right">
+        <form method="POST" action="register.php">
+          <label>Username:</label>
+          <input type="text" name="username" required />
+          <label>Password:</label>
+          <input type="password" name="password" required />
+          <button type="submit">Register</button>
+        </form>
+        <p class="msg">
+          Already a player?
+          <a href="login.html" onclick="toggleForm(true)">Login here</a>.
+        </p>
+      </div>
+    </div>
+    <script src="auth.js"></script>
   </body>
 </html>

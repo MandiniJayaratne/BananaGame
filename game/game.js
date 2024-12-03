@@ -19,7 +19,6 @@ document.addEventListener("DOMContentLoaded", () => {
   let timerInterval;
   let level = 1;
 
-  // Highest score update on logout
   logoutButton.addEventListener("click", () => {
     fetch("update_high_score.php", {
       method: "POST",
@@ -37,7 +36,6 @@ document.addEventListener("DOMContentLoaded", () => {
       });
   });
 
-  // Start the timer with varying intervals based on the level
   function startTimer() {
     clearInterval(timerInterval);
 
@@ -45,10 +43,16 @@ document.addEventListener("DOMContentLoaded", () => {
     timeRemaining = intervalTime;
     updateTimerDisplay();
 
+    const timesUpMessage = document.getElementById("times-up-message");
+    timesUpMessage.classList.add("hidden");
+
     timerInterval = setInterval(() => {
       if (timeRemaining <= 0) {
         clearInterval(timerInterval);
-        // Update the highest score when time is up
+
+        timesUpMessage.textContent = "Time's up! Game Over!";
+        timesUpMessage.classList.remove("hidden");
+
         fetch("update_high_score.php", {
           method: "POST",
           headers: {
@@ -59,12 +63,14 @@ document.addEventListener("DOMContentLoaded", () => {
           .then((response) => response.json())
           .then((data) => {
             console.log(data.message);
-            alert("Time's up! Game over!");
-            window.location.reload();
           })
           .catch((error) => {
             console.error("Error updating high score:", error);
           });
+
+        setTimeout(() => {
+          window.location.reload();
+        }, 2000);
       } else {
         timeRemaining--;
         updateTimerDisplay();
@@ -72,14 +78,12 @@ document.addEventListener("DOMContentLoaded", () => {
     }, 1000);
   }
 
-  // Update the timer display
   function updateTimerDisplay() {
     const minutes = String(Math.floor(timeRemaining / 60)).padStart(2, "0");
     const seconds = String(timeRemaining % 60).padStart(2, "0");
     timerDisplay.textContent = `${minutes}:${seconds}`;
   }
 
-  // Fetch a new question and display it
   async function fetchGameData() {
     try {
       const response = await fetch(apiUrl);
@@ -93,13 +97,11 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  // Load the first question
   fetchGameData().then((solution) => {
     correctSolution = solution;
     startTimer();
   });
 
-  // Update the answer form event listener
   answerForm.addEventListener("submit", (event) => {
     event.preventDefault();
     const userAnswer = parseInt(userAnswerInput.value, 10);
@@ -112,7 +114,6 @@ document.addEventListener("DOMContentLoaded", () => {
       currentScore++;
       scoreDisplay.textContent = currentScore;
 
-      // Check for level change
       if (currentScore > 3 && level === 1) {
         level = 2;
         document.getElementById("level").textContent = level;
@@ -133,9 +134,9 @@ document.addEventListener("DOMContentLoaded", () => {
         resultMessage.textContent = "";
         fetchGameData().then((solution) => {
           correctSolution = solution;
-          startTimer(); // Restart the timer for the next question
+          startTimer();
         });
-      }, 3000); // Wait for 3 seconds before loading the next question
+      }, 3000);
     } else {
       resultMessage.textContent = "OOPS WRONG ANSWER!";
       resultMessage.style.color = "red";
@@ -144,11 +145,9 @@ document.addEventListener("DOMContentLoaded", () => {
     userAnswerInput.value = "";
   });
 
-  // Debugging logs
   console.log("Current Score:", currentScore);
   console.log("Level:", level);
 
-  // Function to update the high score in the backend
   function updateHighScore(newHighScore) {
     fetch("update_high_score.php", {
       method: "POST",
